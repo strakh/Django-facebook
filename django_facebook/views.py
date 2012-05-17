@@ -17,14 +17,14 @@ from django_facebook.api import get_facebook_graph, get_persistent_graph,\
 from django_facebook.canvas import generate_oauth_url
 from django_facebook.connect import CONNECT_ACTIONS, connect_user
 from django_facebook.utils import next_redirect, get_oauth_url
-from django_facebook.decorators import facebook_required
+#from django_facebook.decorators import facebook_required
 
 
 logger = logging.getLogger(__name__)
 
 
 
-@facebook_required(scope='publish_stream')
+#@facebook_required(scope='publish_stream')
 def wall_post(request):
     fb = get_persistent_graph(request)
 
@@ -36,7 +36,7 @@ def wall_post(request):
     return next_redirect(request)
 
 
-@facebook_required(scope='publish_stream,user_photos')
+#@facebook_required(scope='publish_stream,user_photos')
 def image_upload(request):
     fb = get_persistent_graph(request)
     pictures = request.REQUEST.getlist('pictures')
